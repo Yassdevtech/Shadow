@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Privacy Policy - MyApps Studio</title>
+  <title>Privacy Policy - Shadow Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -342,7 +342,7 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-container">
-      <a href="index.html" class="logo">MyApps</a>
+      <a href="index.html" class="logo">Shadow</a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="privacy-policy.html">Privacy</a></li>
@@ -438,16 +438,4 @@
       <div class="policy-section">
         <h2>Contact Us</h2>
         <p>For any questions, concerns, or requests regarding this Privacy Policy, please contact us at:</p>
-        <a href="mailto:yassdevtechvictor@gmail.com" class="contact-email">yassdevtechvictor@gmail.com</a>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 MyApps Studio. All rights reserved.</p>
-  </footer>
-
-</body>
-</html>
+        <a href="/cdn-cgi/l/email-protection#3841594b4b5c5d4e4c5d5b504e515b4c574a785f55595154165b5755" class="contact-email"><span class="__cf_email__" data-cfemail="e69f8795958283909283858e908f85928994a6818b878f8ac885898b">[email&#160;protected]</span></a>
