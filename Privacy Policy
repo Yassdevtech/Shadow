@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Privacy Policy - MyApps Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00f0ff;
+      --secondary: #ff00e5;
+      --accent: #7b2ff7;
+      --dark: #0a0e27;
+      --darker: #050819;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--darker);
+      color: #ffffff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated Background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(ellipse at 20% 30%, rgba(0, 240, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(255, 0, 229, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(123, 47, 247, 0.1) 0%, transparent 50%);
+    }
+
+    .grid-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.5rem 3rem;
+      background: rgba(10, 14, 39, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      animation: slideDown 0.6s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-links a:hover::before {
+      width: 100%;
+    }
+
+    /* Header */
+    .page-header {
+      padding: 10rem 2rem 4rem;
+      text-align: center;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .page-header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Content */
+    .content-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 2rem 6rem;
+    }
+
+    .content-box {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 3rem;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    .intro-text {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .intro-text p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .intro-text strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .policy-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .policy-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-section h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+
+    .policy-section h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.3rem;
+      color: var(--secondary);
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .policy-section p {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .policy-section ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 1rem 0;
+    }
+
+    .policy-section li {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.8;
+      padding-left: 1.8rem;
+      position: relative;
+      margin-bottom: 0.8rem;
+    }
+
+    .policy-section li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .highlight-box {
+      background: rgba(0, 240, 255, 0.05);
+      border-left: 3px solid var(--primary);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+    }
+
+    .contact-email {
+      display: inline-block;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .contact-email:hover {
+      background: var(--primary);
+      color: var(--dark);
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--glass-border);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+        font-size: 0.85rem;
+      }
+
+      .logo {
+        font-size: 1.4rem;
+      }
+
+      .page-header {
+        padding: 8rem 1.5rem 3rem;
+      }
+
+      .content-box {
+        padding: 2rem;
+      }
+
+      .policy-section h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-animation"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">MyApps</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="page-header">
+    <h1>Privacy Policy</h1>
+    <p>Last Updated: January 2025</p>
+  </header>
+
+  <!-- Content -->
+  <div class="content-container">
+    <div class="content-box">
+      
+      <div class="intro-text">
+        <p>Shadow Soft team has adopted this privacy policy ("Privacy Policy") to explain how Shadow Soft collects, stores, and uses the information collected in connection with Shadow Soft Services.</p>
+        
+        <div class="highlight-box">
+          <p><strong>BY INSTALLING, USING, REGISTERING TO, OR OTHERWISE ACCESSING THE SERVICES, YOU AGREE TO THIS PRIVACY POLICY AND GIVE AN EXPLICIT AND INFORMED CONSENT TO THE PROCESSING OF YOUR PERSONAL DATA IN ACCORDANCE WITH THIS PRIVACY POLICY. IF YOU DO NOT AGREE TO THIS PRIVACY POLICY, PLEASE DO NOT INSTALL, USE, REGISTER TO, OR OTHERWISE ACCESS THE SERVICES.</strong></p>
+        </div>
+
+        <p>Shadow Soft reserves the right to modify this Privacy Policy at reasonable times, so please review it frequently. If Shadow Soft makes material or significant changes to this Privacy Policy, Shadow Soft may post a notice on Shadow Soft's website along with the updated Privacy Policy. Your continued use of the Services will signify your acceptance of the changes to this Privacy Policy.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>Non-Personal Data</h2>
+        <p>For purposes of this Privacy Policy, "non-personal data" means information that does not directly identify you. The types of non-personal data Shadow Soft may collect and use include, but are not limited to: application properties, including, but not limited to, application name, package name, and icon installed on your device. Your checking (including likes and recommendations) of a game will be disclosed to all Shadow Soft users.</p>
+        
+        <p>Shadow Soft may use and disclose to partners and contractors the collected non-personal data for purposes of analyzing usage of the Services, advertisement serving, managing and providing the Services, and further developing the Services and other Shadow Soft services and products. You recognize and agree that the analytics companies utilized by Shadow Soft may combine the information collected with other information they have independently collected from other services or products relating to your activities. These companies collect and use information under their own privacy policies.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>Personal Data</h2>
+        <p>For purposes of this Privacy Policy, "personal data" means personally identifiable information that specifically identifies you as an individual. Personal information collected by Shadow Soft is information voluntarily provided to us by you when you create your account or change your account information. The information includes:</p>
+        
+        <ul>
+          <li>Your Facebook ID</li>
+          <li>Name, gender, and location</li>
+          <li>Your friends' IDs on Facebook</li>
+          <li>Game check-ins, likes, dislikes, recommendations, and messages</li>
+        </ul>
+
+        <p>Shadow Soft may use collected personal data for purposes of analyzing usage of the Services, providing customer and technical support, managing and providing Services (including managing advertisement serving), and further developing the Services and other Shadow Soft services and products.</p>
+
+        <h3>Social Networking Integration</h3>
+        <p>Please note that certain features of the Services may connect to your social networking sites to obtain additional information about you. In such cases, Shadow Soft may collect certain information from your social networking profile with your consent, including, but not limited to:</p>
+        
+        <ul>
+          <li>Your name, profile picture, and gender</li>
+          <li>User ID, email address, and country</li>
+          <li>The names and profile pictures of your social networking site "friends"</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>Disclosure and Transfer of Personal Data</h2>
+        <p>Shadow Soft collects and processes personal data on a voluntary basis and does not sell your personal data to third parties. However, personal data may be disclosed:</p>
+        
+        <ul>
+          <li>To parent companies and subsidiaries in accordance with this Privacy Policy</li>
+          <li>To agents and contractors instructed to comply with our Privacy Policy</li>
+          <li>As required by law enforcement or government officials in connection with investigations or legal obligations</li>
+        </ul>
+
+        <p>For more information, refer to Data Sharing Policies.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>Safeguards</h2>
+        <p>Shadow Soft follows industry standards and maintains safeguards to ensure data security. Collected personal data is stored in secure environments and is protected by a firewall. For detailed security measures, visit Shadow Soft Security Standards.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>3rd Party Services</h2>
+        <p>Shadow Soft integrates third-party services like:</p>
+        
+        <ul>
+          <li><strong>AdMob by Google:</strong> For advertisement serving</li>
+          <li><strong>Google Analytics:</strong> For monitoring app usage and analyzing user behavior</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>Children's Online Privacy Protection Act Compliance</h2>
+        <p>In compliance with COPPA, Shadow Soft does not collect personal information from users under 13 years of age.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>Contact Us</h2>
+        <p>For any questions, concerns, or requests regarding this Privacy Policy, please contact us at:</p>
+        <a href="mailto:yassdevtechvictor@gmail.com" class="contact-email">yassdevtechvictor@gmail.com</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MyApps Studio. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
