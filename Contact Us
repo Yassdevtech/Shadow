@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us - MyApps Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00f0ff;
+      --secondary: #ff00e5;
+      --accent: #7b2ff7;
+      --dark: #0a0e27;
+      --darker: #050819;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--darker);
+      color: #ffffff;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Animated Background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(ellipse at 20% 30%, rgba(0, 240, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(255, 0, 229, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(123, 47, 247, 0.1) 0%, transparent 50%);
+    }
+
+    .grid-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.5rem 3rem;
+      background: rgba(10, 14, 39, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      animation: slideDown 0.6s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-links a:hover::before {
+      width: 100%;
+    }
+
+    /* Header */
+    .page-header {
+      padding: 10rem 2rem 4rem;
+      text-align: center;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .page-header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Content */
+    .content-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 2rem 6rem;
+      flex: 1;
+    }
+
+    .contact-card {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 4rem 3rem;
+      text-align: center;
+      transition: all 0.4s ease;
+      animation: fadeInUp 1s ease-out 0.2s both;
+      margin-bottom: 2rem;
+    }
+
+    .contact-card:hover {
+      border-color: rgba(0, 240, 255, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 240, 255, 0.2);
+      transform: translateY(-8px);
+    }
+
+    .contact-icon {
+      font-size: 5rem;
+      margin-bottom: 2rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .contact-card h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.2rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .contact-card p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    .email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: 600;
+      padding: 1.2rem 2.5rem;
+      border: 2px solid var(--primary);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .email-link::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: var(--primary);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease;
+    }
+
+    .email-link:hover::before {
+      width: 400px;
+      height: 400px;
+    }
+
+    .email-link:hover {
+      color: var(--dark);
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0, 240, 255, 0.4);
+    }
+
+    .email-link span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-box {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 2.5rem;
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    .info-box h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .info-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(0, 240, 255, 0.05);
+      border-radius: 16px;
+      border: 1px solid rgba(0, 240, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .info-item:hover {
+      background: rgba(0, 240, 255, 0.1);
+      border-color: rgba(0, 240, 255, 0.3);
+      transform: translateY(-5px);
+    }
+
+    .info-item-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .info-item h4 {
+      font-family: 'Orbitron', sans-serif;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .info-item p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--glass-border);
+      padding: 2rem;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    footer p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+        font-size: 0.85rem;
+      }
+
+      .logo {
+        font-size: 1.4rem;
+      }
+
+      .page-header {
+        padding: 8rem 1.5rem 3rem;
+      }
+
+      .contact-card {
+        padding: 3rem 2rem;
+      }
+
+      .contact-icon {
+        font-size: 4rem;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .email-link {
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-animation"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">MyApps</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="page-header">
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you</p>
+  </header>
+
+  <!-- Content -->
+  <div class="content-container">
+    
+    <div class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <h2>Get in Touch</h2>
+      <p>Have questions about our apps? Need technical support? Want to share feedback? Our team is here to help you.</p>
+      <a href="mailto:yassdevtechvictor@gmail.com" class="email-link">
+        <span>📧 yassdevtechvictor@gmail.com</span>
+      </a>
+    </div>
+
+    <div class="info-box">
+      <h3>What We Can Help You With</h3>
+      
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-item-icon">💬</div>
+          <h4>General Inquiries</h4>
+          <p>Questions about our apps, features, or services</p>
+        </div>
+
+        <div class="info-item">
+          <div class="info-item-icon">🔧</div>
+          <h4>Technical Support</h4>
+          <p>Help with installation, troubleshooting, or bugs</p>
+        </div>
+
+        <div class="info-item">
+          <div class="info-item-icon">💡</div>
+          <h4>Feedback & Suggestions</h4>
+          <p>Share your ideas to help us improve</p>
+        </div>
+
+        <div class="info-item">
+          <div class="info-item-icon">🤝</div>
+          <h4>Partnerships</h4>
+          <p>Business inquiries and collaboration opportunities</p>
+        </div>
+
+        <div class="info-item">
+          <div class="info-item-icon">🔒</div>
+          <h4>Privacy Concerns</h4>
+          <p>Questions about data handling and privacy</p>
+        </div>
+
+        <div class="info-item">
+          <div class="info-item-icon">⚡</div>
+          <h4>Quick Response</h4>
+          <p>We typically respond within 24-48 hours</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MyApps Studio. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
