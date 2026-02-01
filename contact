@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact Us - MyApps Studio</title>
+  <title>Contact Us - Shadow Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -395,7 +395,7 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-container">
-      <a href="index.html" class="logo">MyApps</a>
+      <a href="index.html" class="logo">Shadow</a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="privacy-policy.html">Privacy</a></li>
@@ -418,8 +418,8 @@
       <div class="contact-icon">✉️</div>
       <h2>Get in Touch</h2>
       <p>Have questions about our apps? Need technical support? Want to share feedback? Our team is here to help you.</p>
-      <a href="mailto:yassdevtechvictor@gmail.com" class="email-link">
-        <span>📧 yassdevtechvictor@gmail.com</span>
+      <a href="/cdn-cgi/l/email-protection#f08991838394958684959398869993849f82b0979d91999cde939f9d" class="email-link">
+        <span>📧 <span class="__cf_email__" data-cfemail="b7ced6c4c4d3d2c1c3d2d4dfc1ded4c3d8c5f7d0dad6dedb99d4d8da">[email&#160;protected]</span></span>
       </a>
     </div>
 
@@ -462,15 +462,3 @@
           <h4>Quick Response</h4>
           <p>We typically respond within 24-48 hours</p>
         </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 MyApps Studio. All rights reserved.</p>
-  </footer>
-
-</body>
-</html>
