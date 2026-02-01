@@ -332,18 +332,17 @@
 
     .app-header {
       display: flex;
+      flex-direction: column;
       align-items: center;
       gap: 1.5rem;
       margin-bottom: 1.5rem;
     }
 
     .app-icon {
-      width: 80px;
-      height: 80px;
-      min-width: 80px;
-      min-height: 80px;
+      width: 120px;
+      height: 120px;
       background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: 20px;
+      border-radius: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -353,9 +352,10 @@
     }
 
     .app-icon img {
-      width: 60%;
-      height: 60%;
-      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
     }
 
     .app-icon::after {
@@ -363,7 +363,7 @@
       position: absolute;
       inset: -2px;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: 20px;
+      border-radius: 24px;
       z-index: -1;
       opacity: 0;
       transition: opacity 0.3s ease;
@@ -379,11 +379,15 @@
       to { transform: rotate(360deg); }
     }
 
+    .app-info {
+      text-align: center;
+    }
+
     .app-info h3 {
       font-family: 'Orbitron', sans-serif;
       font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
       color: #ffffff;
     }
 
@@ -395,10 +399,59 @@
       font-weight: 600;
     }
 
+    .app-rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .stars {
+      color: #ffd700;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+
+    .rating-text {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+
+    .app-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.3rem;
+    }
+
     .app-description {
       color: rgba(255, 255, 255, 0.7);
       line-height: 1.7;
       margin-bottom: 2rem;
+      text-align: center;
     }
 
     .download-btn {
@@ -519,6 +572,15 @@
       .apps-section {
         padding: 4rem 1.5rem;
       }
+
+      .app-icon {
+        width: 100px;
+        height: 100px;
+      }
+
+      .app-stats {
+        gap: 1rem;
+      }
     }
   </style>
 </head>
@@ -572,6 +634,20 @@
           <div class="app-info">
             <h3>Air Mirroring</h3>
             <div class="app-category">Streaming & Mirroring</div>
+            <div class="app-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-text">4.8</span>
+            </div>
+            <div class="app-stats">
+              <div class="stat-item">
+                <span class="stat-value">500K+</span>
+                <span class="stat-label">Downloads</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">12K</span>
+                <span class="stat-label">Reviews</span>
+              </div>
+            </div>
           </div>
         </div>
         <p class="app-description">
@@ -591,6 +667,20 @@
           <div class="app-info">
             <h3>Endoscope Camera</h3>
             <div class="app-category">Tools & Inspection</div>
+            <div class="app-rating">
+              <span class="stars">★★★★☆</span>
+              <span class="rating-text">4.6</span>
+            </div>
+            <div class="app-stats">
+              <div class="stat-item">
+                <span class="stat-value">300K+</span>
+                <span class="stat-label">Downloads</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">8.5K</span>
+                <span class="stat-label">Reviews</span>
+              </div>
+            </div>
           </div>
         </div>
         <p class="app-description">
@@ -610,6 +700,20 @@
           <div class="app-info">
             <h3>Apple Watch Connect</h3>
             <div class="app-category">Wearable Sync</div>
+            <div class="app-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-text">4.7</span>
+            </div>
+            <div class="app-stats">
+              <div class="stat-item">
+                <span class="stat-value">250K+</span>
+                <span class="stat-label">Downloads</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">9.2K</span>
+                <span class="stat-label">Reviews</span>
+              </div>
+            </div>
           </div>
         </div>
         <p class="app-description">
@@ -629,6 +733,20 @@
           <div class="app-info">
             <h3>Apple TV Remote</h3>
             <div class="app-category">Smart Control</div>
+            <div class="app-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-text">4.9</span>
+            </div>
+            <div class="app-stats">
+              <div class="stat-item">
+                <span class="stat-value">600K+</span>
+                <span class="stat-label">Downloads</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">15K</span>
+                <span class="stat-label">Reviews</span>
+              </div>
+            </div>
           </div>
         </div>
         <p class="app-description">
@@ -648,6 +766,21 @@
           <div class="app-info">
             <h3>Reverse Wireless Charging</h3>
             <div class="app-category">Power Share</div>
+            <div class="app-rating">
+              <span class="stars">★★★★☆</span>
+              <span class="rating-text">4.5</span>
+            </div>
+            <div class="app-stats">
+              <div class="stat-item">
+                <span class="stat-value">180K+</span>
+                <span class="stat-label">Downloads</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-item">
+                <span class="stat-value">6.8K</span>
+                <span class="stat-label">Reviews</span>
+              </div>
+            </div>
           </div>
         </div>
         <p class="app-description">
