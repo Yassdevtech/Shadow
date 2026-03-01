@@ -33,7 +33,6 @@
       flex-direction: column;
     }
 
-    /* Animated Background */
     .bg-animation {
       position: fixed;
       top: 0;
@@ -66,7 +65,6 @@
       100% { transform: translate(50px, 50px); }
     }
 
-    /* Navigation */
     nav {
       position: fixed;
       top: 0;
@@ -80,14 +78,8 @@
     }
 
     @keyframes slideDown {
-      from {
-        transform: translateY(-100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     .nav-container {
@@ -141,15 +133,9 @@
       transition: width 0.3s ease;
     }
 
-    .nav-links a:hover {
-      color: #ffffff;
-    }
+    .nav-links a:hover { color: #ffffff; }
+    .nav-links a:hover::before { width: 100%; }
 
-    .nav-links a:hover::before {
-      width: 100%;
-    }
-
-    /* Header */
     .page-header {
       padding: 10rem 2rem 4rem;
       text-align: center;
@@ -157,14 +143,8 @@
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .page-header h1 {
@@ -183,7 +163,6 @@
       color: rgba(255, 255, 255, 0.7);
     }
 
-    /* Content */
     .content-container {
       max-width: 900px;
       margin: 0 auto;
@@ -213,6 +192,7 @@
       font-size: 5rem;
       margin-bottom: 2rem;
       animation: float 3s ease-in-out infinite;
+      display: block;
     }
 
     @keyframes float {
@@ -264,8 +244,8 @@
     }
 
     .email-link:hover::before {
-      width: 400px;
-      height: 400px;
+      width: 500px;
+      height: 500px;
     }
 
     .email-link:hover {
@@ -277,6 +257,34 @@
     .email-link span {
       position: relative;
       z-index: 1;
+    }
+
+    /* Copy feedback */
+    .copy-hint {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1px;
+    }
+
+    .copied-toast {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--dark);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      margin-top: 0.8rem;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .copied-toast.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .info-box {
@@ -336,7 +344,6 @@
       line-height: 1.6;
     }
 
-    /* Footer */
     footer {
       background: var(--dark);
       border-top: 1px solid var(--glass-border);
@@ -350,41 +357,15 @@
       font-size: 0.9rem;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
-      nav {
-        padding: 1rem 1.5rem;
-      }
-
-      .nav-links {
-        gap: 1.5rem;
-        font-size: 0.85rem;
-      }
-
-      .logo {
-        font-size: 1.4rem;
-      }
-
-      .page-header {
-        padding: 8rem 1.5rem 3rem;
-      }
-
-      .contact-card {
-        padding: 3rem 2rem;
-      }
-
-      .contact-icon {
-        font-size: 4rem;
-      }
-
-      .info-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .email-link {
-        font-size: 1.1rem;
-        padding: 1rem 2rem;
-      }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; font-size: 0.85rem; }
+      .logo { font-size: 1.4rem; }
+      .page-header { padding: 8rem 1.5rem 3rem; }
+      .contact-card { padding: 3rem 2rem; }
+      .contact-icon { font-size: 4rem; }
+      .info-grid { grid-template-columns: 1fr; }
+      .email-link { font-size: 1rem; padding: 1rem 1.5rem; }
     }
   </style>
 </head>
@@ -392,7 +373,6 @@
   <div class="bg-animation"></div>
   <div class="grid-overlay"></div>
 
-  <!-- Navigation -->
   <nav>
     <div class="nav-container">
       <a href="index.html" class="logo">Shadow</a>
@@ -405,27 +385,27 @@
     </div>
   </nav>
 
-  <!-- Header -->
   <header class="page-header">
     <h1>Contact Us</h1>
     <p>We'd love to hear from you</p>
   </header>
 
-  <!-- Content -->
   <div class="content-container">
-    
+
     <div class="contact-card">
-      <div class="contact-icon">✉️</div>
+      <span class="contact-icon">✉️</span>
       <h2>Get in Touch</h2>
-      <p>Have questions about our apps? Need technical support? Want to share feedback? Our team is here to help you.</p>
-      <a href="/cdn-cgi/l/email-protection#f08991838394958684959398869993849f82b0979d91999cde939f9d" class="email-link">
-        <span>📧 <span class="__cf_email__" data-cfemail="b7ced6c4c4d3d2c1c3d2d4dfc1ded4c3d8c5f7d0dad6dedb99d4d8da">[email&#160;protected]</span></span>
+      <p>Have questions about our apps? Need technical support? Want to share feedback?<br>Our team is here to help you.</p>
+      <a href="mailto:support-contact@shadowsoft.space" class="email-link" id="emailBtn">
+        <span>📧 <span>support-contact@shadowsoft.space</span></span>
       </a>
+      <div class="copy-hint">Click to open in your mail app</div>
+      <div class="copied-toast" id="toast">✔ Email copied!</div>
     </div>
 
     <div class="info-box">
       <h3>What We Can Help You With</h3>
-      
+
       <div class="info-grid">
         <div class="info-item">
           <div class="info-item-icon">💬</div>
@@ -460,5 +440,29 @@
         <div class="info-item">
           <div class="info-item-icon">⚡</div>
           <h4>Quick Response</h4>
-          <p>We typically respond within 24-48 hours</p>
+          <p>We typically respond within 24–48 hours</p>
         </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2025 Shadow Studio. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Optional: copy email to clipboard on click + show toast
+    const emailBtn = document.getElementById('emailBtn');
+    const toast = document.getElementById('toast');
+
+    emailBtn.addEventListener('click', function(e) {
+      navigator.clipboard.writeText('support-contact@shadowsoft.space').then(() => {
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      }).catch(() => {});
+      // Still follow the mailto link normally
+    });
+  </script>
+</body>
+</html>
