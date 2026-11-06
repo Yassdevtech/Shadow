@@ -547,6 +547,10 @@
 
     /* Terms dropdown */
     .nav-links .dropdown { position: relative; }
+    .nav-links { align-items: center; }
+    .nav-links > li { display: flex; align-items: center; }
+    .nav-links .dropdown-toggle { line-height: 1.2; }
+    .nav-links .dropdown-toggle .arrow { line-height: 1; }
     .nav-links .dropdown-toggle { cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem; }
     .nav-links .dropdown-toggle .arrow { font-size: 0.6rem; transition: transform 0.3s ease; }
     .nav-links .dropdown.open .arrow,
@@ -648,10 +652,10 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Terms <span class="arrow">▼</span></a>
           <ul class="dropdown-menu">
-            <li><a href="https://shadowsoft.space/subscription-terms.html" target="_blank" rel="noopener">Air Mirroring</a></li>
-            <li><a href="https://shadowsoft.space/endo-subscription-terms.html" target="_blank" rel="noopener">Endoscope Camera</a></li>
-            <li><a href="https://shadowsoft.space/tvremote-terms" target="_blank" rel="noopener">Apple TV Remote</a></li>
-            <li><a href="https://shadowsoft.space/wireless-reverse-terms" target="_blank" rel="noopener">Reverse Wireless Charging</a></li>
+            <li><a href="https://shadowsoft.space/subscription-terms.html" target="_blank" rel="noopener">SmartLink</a></li>
+            <li><a href="https://shadowsoft.space/endo-subscription-terms.html" target="_blank" rel="noopener">Endoscope Camera / USB OTG</a></li>
+            <li><a href="https://shadowsoft.space/tvremote-terms" target="_blank" rel="noopener">Smart Remote</a></li>
+            <li><a href="https://shadowsoft.space/wireless-reverse-terms" target="_blank" rel="noopener">Wireless Charging Checker</a></li>
           </ul>
         </li>
         <li><a href="contact.html">Contact</a></li>
@@ -676,179 +680,142 @@
     </div>
     
     <div class="apps-container">
-      
-      <!-- App 1: Air Mirroring -->
+
       <div class="app-card">
         <div class="app-header">
           <div class="app-icon">
-            <img src="assets/icons/airplay.png" alt="Air Mirroring">
+            <img src="assets/icons/airplay.png" alt="SmartLink">
           </div>
           <div class="app-info">
-            <h3>Air Mirroring</h3>
-            <div class="app-category">Streaming & Mirroring</div>
+            <h3>SmartLink: Cast to TV &amp; Mirror</h3>
+            <div class="app-category">Streaming &amp; Mirroring</div>
             <div class="app-rating">
-              <span class="stars">★★★★★</span>
-              <span class="rating-text">4.8</span>
+              <span class="stars">★★★☆☆</span>
+              <span class="rating-text">3.3</span>
             </div>
             <div class="app-stats">
               <div class="stat-item">
-                <span class="stat-value">500K+</span>
+                <span class="stat-value">100K+</span>
                 <span class="stat-label">Downloads</span>
               </div>
               <div class="stat-item">
-                <span class="stat-value">12K</span>
+                <span class="stat-value">832</span>
                 <span class="stat-label">Reviews</span>
               </div>
             </div>
           </div>
         </div>
         <p class="app-description">
-          Cast your phone screen to any TV wirelessly. Share photos, videos, and apps on the big screen with zero lag and crystal-clear quality.
+          Cast videos, photos and music from your phone to your Smart TV in a few taps. Simple screen mirroring over your home WiFi, with automatic TV discovery.
         </p>
-        <a href="https://play.google.com/store/apps/details?id=com.airmirroring.airplay" class="download-btn" target="_blank">
+        <a href="https://play.google.com/store/apps/details?id=com.airmirroring.airplay" class="download-btn" target="_blank" rel="noopener">
           <span>📥 Download Now</span>
         </a>
       </div>
 
-      <!-- App 2: Endoscope Camera -->
       <div class="app-card">
         <div class="app-header">
           <div class="app-icon">
             <img src="assets/icons/endoscope.png" alt="Endoscope Camera">
           </div>
           <div class="app-info">
-            <h3>Endoscope Camera</h3>
-            <div class="app-category">Tools & Inspection</div>
+            <h3>Endoscope Camera / USB OTG</h3>
+            <div class="app-category">Tools &amp; Inspection</div>
             <div class="app-rating">
               <span class="stars">★★★★☆</span>
-              <span class="rating-text">4.6</span>
+              <span class="rating-text">4.4</span>
             </div>
             <div class="app-stats">
               <div class="stat-item">
-                <span class="stat-value">300K+</span>
+                <span class="stat-value">100K+</span>
                 <span class="stat-label">Downloads</span>
               </div>
               <div class="stat-item">
-                <span class="stat-value">8.5K</span>
+                <span class="stat-value">678</span>
                 <span class="stat-label">Reviews</span>
               </div>
             </div>
           </div>
         </div>
         <p class="app-description">
-          Transform your phone into a professional inspection tool. Connect endoscope cameras and explore hard-to-reach spaces with HD recording.
+          Connect your phone to any endoscope, USB camera or borescope via OTG. Capture photos and videos, and manage them in the built-in gallery.
         </p>
-        <a href="https://play.google.com/store/apps/details?id=com.endoscope.cameraendoscop" class="download-btn" target="_blank">
+        <a href="https://play.google.com/store/apps/details?id=com.endoscope.cameraendoscop" class="download-btn" target="_blank" rel="noopener">
           <span>📥 Download Now</span>
         </a>
       </div>
 
-      <!-- App 3: Apple Watch Connect -->
       <div class="app-card">
         <div class="app-header">
           <div class="app-icon">
-            <img src="assets/icons/watch.png" alt="Apple Watch Connect">
+            <img src="assets/icons/remote.png" alt="Smart Remote">
           </div>
           <div class="app-info">
-            <h3>Apple Watch Connect</h3>
-            <div class="app-category">Wearable Sync</div>
-            <div class="app-rating">
-              <span class="stars">★★★★★</span>
-              <span class="rating-text">4.7</span>
-            </div>
-            <div class="app-stats">
-              <div class="stat-item">
-                <span class="stat-value">250K+</span>
-                <span class="stat-label">Downloads</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-value">9.2K</span>
-                <span class="stat-label">Reviews</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="app-description">
-          Bridge your Apple Watch with Android. Receive notifications, track fitness, and manage health data seamlessly across ecosystems.
-        </p>
-        <a href="https://play.google.com/store/apps/details?id=com.applewatch.connect" class="download-btn" target="_blank">
-          <span>📥 Download Now</span>
-        </a>
-      </div>
-
-      <!-- App 4: Apple TV Remote -->
-      <div class="app-card">
-        <div class="app-header">
-          <div class="app-icon">
-            <img src="assets/icons/remote.png" alt="Apple TV Remote">
-          </div>
-          <div class="app-info">
-            <h3>Apple TV Remote</h3>
-            <div class="app-category">Smart Control</div>
-            <div class="app-rating">
-              <span class="stars">★★★★★</span>
-              <span class="rating-text">4.9</span>
-            </div>
-            <div class="app-stats">
-              <div class="stat-item">
-                <span class="stat-value">600K+</span>
-                <span class="stat-label">Downloads</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-value">15K</span>
-                <span class="stat-label">Reviews</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="app-description">
-          Ultimate remote control for Apple TV. Navigate, search, and control your entertainment with an intuitive touch interface.
-        </p>
-        <a href="https://play.google.com/store/apps/details?id=com.RemoteControl.AppleTv" class="download-btn" target="_blank">
-          <span>📥 Download Now</span>
-        </a>
-      </div>
-
-      <!-- App 5: Wireless Charging -->
-      <div class="app-card">
-        <div class="app-header">
-          <div class="app-icon">
-            <img src="assets/icons/reverse.png" alt="Reverse Wireless Charging">
-          </div>
-          <div class="app-info">
-            <h3>Reverse Wireless Charging</h3>
-            <div class="app-category">Power Share</div>
+            <h3>Smart Remote: Universal TV</h3>
+            <div class="app-category">TV Remote</div>
             <div class="app-rating">
               <span class="stars">★★★★☆</span>
-              <span class="rating-text">4.5</span>
+              <span class="rating-text">4.3</span>
             </div>
             <div class="app-stats">
               <div class="stat-item">
-                <span class="stat-value">180K+</span>
+                <span class="stat-value">10K+</span>
                 <span class="stat-label">Downloads</span>
               </div>
               <div class="stat-item">
-                <span class="stat-item">
-                <span class="stat-value">6.8K</span>
+                <span class="stat-value">518</span>
                 <span class="stat-label">Reviews</span>
               </div>
             </div>
           </div>
         </div>
         <p class="app-description">
-          Share battery power wirelessly with other devices. Charge earbuds, smartwatches, and phones on the go without cables.
+          Turn your phone into a universal remote for your Smart TV. Control power, volume and navigation, plus casting and screen mirroring from one app.
         </p>
-        <a href="https://play.google.com/store/apps/details?id=com.reverse.WirelessCharging" class="download-btn" target="_blank">
+        <a href="https://play.google.com/store/apps/details?id=com.RemoteControl.AppleTv" class="download-btn" target="_blank" rel="noopener">
+          <span>📥 Download Now</span>
+        </a>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">
+            <img src="assets/icons/reverse.png" alt="Wireless Charging Checker">
+          </div>
+          <div class="app-info">
+            <h3>Wireless Charging Checker</h3>
+            <div class="app-category">Battery &amp; Charging</div>
+            <div class="app-rating">
+              <span class="stars">★★★★☆</span>
+              <span class="rating-text">3.8</span>
+            </div>
+            <div class="app-stats">
+              <div class="stat-item">
+                <span class="stat-value">50K+</span>
+                <span class="stat-label">Downloads</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">1.1K</span>
+                <span class="stat-label">Reviews</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="app-description">
+          Find out if your phone supports wireless and reverse charging in one tap. Includes a live charging test and a real-time battery monitor.
+        </p>
+        <a href="https://play.google.com/store/apps/details?id=com.reverse.WirelessCharging" class="download-btn" target="_blank" rel="noopener">
           <span>📥 Download Now</span>
         </a>
       </div>
 
     </div>
+
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Shadow Studio. All rights reserved. Designed for the future.</p>
+    <p>&copy; 2026 Shadow Studio. All rights reserved. Designed for the future.</p>
   </footer>
 
   <script>
