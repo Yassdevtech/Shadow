@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Terms of Use - Endoscope Camera / USB OTG | Shadow Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00f0ff;
+      --secondary: #ff00e5;
+      --accent: #7b2ff7;
+      --dark: #0a0e27;
+      --darker: #050819;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--darker);
+      color: #ffffff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated Background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(ellipse at 20% 30%, rgba(0, 240, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(255, 0, 229, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(123, 47, 247, 0.1) 0%, transparent 50%);
+    }
+
+    .grid-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.5rem 3rem;
+      background: rgba(10, 14, 39, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      animation: slideDown 0.6s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .logo::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), transparent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-links a:hover::before {
+      width: 100%;
+    }
+
+
+    /* Terms dropdown */
+    .nav-links .dropdown { position: relative; }
+    .nav-links { align-items: center; }
+    .nav-links > li { display: flex; align-items: center; }
+    .nav-links .dropdown-toggle { line-height: 1.2; }
+    .nav-links .dropdown-toggle .arrow { line-height: 1; }
+    .nav-links .dropdown-toggle { cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links .dropdown-toggle .arrow { font-size: 0.6rem; transition: transform 0.3s ease; }
+    .nav-links .dropdown.open .arrow,
+    .nav-links .dropdown:hover .arrow { transform: rotate(180deg); }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      min-width: 220px;
+      margin-top: 0.8rem;
+      padding: 0.6rem 0;
+      list-style: none;
+      background: rgba(10, 10, 20, 0.97);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: all 0.25s ease;
+      z-index: 1000;
+    }
+    .dropdown::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 0.9rem; }
+    .dropdown:hover .dropdown-menu,
+    .dropdown.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .dropdown-menu li { display: block; }
+    .dropdown-menu a {
+      display: block;
+      padding: 0.7rem 1.2rem !important;
+      text-transform: none !important;
+      letter-spacing: 0 !important;
+      font-size: 0.9rem !important;
+      white-space: nowrap;
+    }
+    .dropdown-menu a::before { display: none; }
+    .dropdown-menu a:hover { background: rgba(255, 255, 255, 0.08); }
+    .dropdown-menu .menu-divider { height: 1px; margin: 0.4rem 0; background: rgba(255, 255, 255, 0.12); }
+
+
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--glass-border);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    footer p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    .legal { max-width: 860px; margin: 0 auto; padding: 9rem 2rem 5rem; }
+    .legal h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(1.6rem, 4.5vw, 2.5rem); font-weight: 900;
+      background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.8rem; }
+    .legal .updated { color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-bottom: 2.5rem; }
+    .legal .card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 16px; padding: 2.5rem; backdrop-filter: blur(10px); }
+    .legal h2 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: var(--primary); margin: 2rem 0 0.8rem; }
+    .legal h2:first-child { margin-top: 0; }
+    .legal p, .legal li { color: rgba(255,255,255,0.78); line-height: 1.8; font-weight: 300; }
+    .legal p { margin-bottom: 0.6rem; }
+    .legal ul { margin: 0.6rem 0 0.6rem 1.4rem; }
+    .legal a { color: var(--primary); }
+    @media (max-width: 768px) {
+      .legal { padding: 7rem 1.2rem 3rem; }
+      .legal .card { padding: 1.5rem; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; font-size: 0.85rem; }
+      .logo { font-size: 1.4rem; }
+      .dropdown-menu { min-width: 200px; }
+      .dropdown-menu a { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-animation"></div>
+  <div class="grid-overlay"></div>
+
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo" style="text-decoration:none;">Shadow</a>
+      <ul class="nav-links">
+        <li><a href="index.html#apps">Apps</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Terms <span class="arrow">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="subscription-terms.html">SmartLink</a></li>
+            <li><a href="endo-subscription-terms.html">Endoscope Camera / USB OTG</a></li>
+            <li><a href="tvremote-terms.html">Smart Remote</a></li>
+            <li><a href="wireless-reverse-terms.html">Wireless Charging Checker</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="legal">
+    <h1>Terms of Use<br>Endoscope Camera / USB OTG</h1>
+    <p class="updated">Last updated: November 5, 2026</p>
+    <div class="card">
+      <h2>1. Acceptance of Terms</h2>
+      <p>These Terms of Use ("Terms") govern your use of <strong>Endoscope Camera / USB OTG</strong> (the "App"), published by Shadow Soft ("Shadow Studio", "we", "us", "our"). By downloading, installing or using the App, you agree to these Terms. If you do not agree, please do not use the App.</p>
+      <h2>2. About the App</h2>
+      <p>Endoscope Camera / USB OTG lets you connect your phone to an endoscope, USB camera, borescope or inspection camera through OTG USB, view the live feed, capture photos and videos, and manage them in a built-in gallery. The App is available on <a href="https://play.google.com/store/apps/details?id=com.endoscope.cameraendoscop" target="_blank" rel="noopener">Google Play</a>.</p>
+      <h2>3. License</h2>
+      <p>We grant you a limited, personal, non-exclusive, non-transferable, revocable license to install and use the App on devices you own or control, for personal, non-commercial purposes, in accordance with these Terms and Google Play's rules.</p>
+      <h2>4. Acceptable Use</h2>
+      <p>You agree not to:</p><ul><li>copy, modify, reverse engineer, decompile or attempt to extract the source code of the App, except where permitted by law;</li><li>use the App for any unlawful, harmful or fraudulent purpose;</li><li>interfere with or disrupt the App, its advertising or its related services;</li><li>use the app to record or photograph people without their knowledge or consent, or in places where recording is prohibited;</li><li>use the app for any surveillance, intrusion or privacy-violating purpose;</li><li>sell, rent, sublicense or distribute the App to third parties.</li></ul>
+      <h2>5. Hardware and Compatibility</h2>
+      <p>The app requires a compatible external camera and a phone that supports USB OTG. We do not sell or supply cameras, and we cannot guarantee compatibility with every endoscope, USB camera or borescope model, or with every phone. Inserting probes into pipes, engines or other spaces is done at your own risk; follow the safety instructions of your camera's manufacturer.</p>
+      <h2>6. Photos and Videos</h2>
+      <p>Photos and videos you capture are stored on your device. You are responsible for backing them up and for the way you use, share or publish them. The app is a general-purpose inspection tool and is not intended for medical or diagnostic use.</p>
+      <h2>7. Ads, Subscriptions and Purchases</h2>
+      <p>The App is free to download and contains ads. Some features may also be offered through an optional paid subscription or in-app purchase. Where a subscription is offered, its price, billing period and any free trial are shown on Google Play before you confirm. Subscriptions are billed through your Google Play account and renew automatically unless you cancel at least 24 hours before the end of the current period. You can manage or cancel a subscription at any time in Google Play under Payments &amp; subscriptions &gt; Subscriptions; you keep access until the end of the period already paid. Uninstalling the App does not cancel a subscription. Refunds are handled according to Google Play's refund policy.</p>
+      <h2>8. Privacy</h2>
+      <p>Our <a href="privacy-policy.html">Privacy Policy</a> explains what information the App and its advertising partners may collect, such as device identifiers, and how it is used. By using the App you also agree to the Privacy Policy.</p>
+      <h2>9. Intellectual Property</h2>
+      <p>The App, including its design, code, logos and content, is owned by Shadow Soft or its licensors and is protected by intellectual property laws. These Terms do not transfer any ownership rights to you.</p>
+      <h2>10. Disclaimer of Warranties</h2>
+      <p>The App is provided "as is" and "as available", without warranties of any kind, express or implied, including fitness for a particular purpose or uninterrupted, error-free operation. The app is not a certified professional inspection or medical device, and results depend on your camera and phone.</p>
+      <h2>11. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by law, Shadow Soft is not liable for any indirect, incidental, special or consequential damages, or for loss of data, profits or damage to devices, arising from your use of or inability to use the App. Nothing in these Terms limits rights you have under mandatory consumer protection laws.</p>
+      <h2>12. Termination</h2>
+      <p>We may suspend or end your access to the App if you breach these Terms. You may stop using the App at any time by uninstalling it and cancelling any active subscription in Google Play.</p>
+      <h2>13. Changes to These Terms</h2>
+      <p>We may update these Terms from time to time. The updated version will be posted on this page with a new "Last updated" date. Continued use of the App after changes means you accept the updated Terms.</p>
+      <h2>14. Governing Law</h2>
+      <p>These Terms are governed by the laws of the Province of Quebec and the federal laws of Canada applicable therein, subject to any mandatory consumer protection laws of your place of residence.</p>
+      <h2>15. Contact Us</h2>
+      <p>Questions about these Terms? Contact us at <a href="mailto:support-contact@shadowsoft.space">support-contact@shadowsoft.space</a> or through our <a href="contact.html">Contact page</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Shadow Studio. All rights reserved. Designed for the future.</p>
+  </footer>
+
+  <script>
+    (function () {
+      var dd = document.querySelector('.nav-links .dropdown');
+      if (!dd) return;
+      var toggle = dd.querySelector('.dropdown-toggle');
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        var open = dd.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+      });
+      document.addEventListener('click', function (e) {
+        if (!dd.contains(e.target)) {
+          dd.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
