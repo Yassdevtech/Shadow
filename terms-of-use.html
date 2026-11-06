@@ -166,49 +166,6 @@
     }
 
 
-    /* Terms dropdown */
-    .nav-links .dropdown { position: relative; }
-    .nav-links { align-items: center; }
-    .nav-links > li { display: flex; align-items: center; }
-    .nav-links .dropdown-toggle { line-height: 1.2; }
-    .nav-links .dropdown-toggle .arrow { line-height: 1; }
-    .nav-links .dropdown-toggle { cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem; }
-    .nav-links .dropdown-toggle .arrow { font-size: 0.6rem; transition: transform 0.3s ease; }
-    .nav-links .dropdown.open .arrow,
-    .nav-links .dropdown:hover .arrow { transform: rotate(180deg); }
-    .dropdown-menu {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      min-width: 220px;
-      margin-top: 0.8rem;
-      padding: 0.6rem 0;
-      list-style: none;
-      background: rgba(10, 10, 20, 0.97);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(8px);
-      transition: all 0.25s ease;
-      z-index: 1000;
-    }
-    .dropdown::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 0.9rem; }
-    .dropdown:hover .dropdown-menu,
-    .dropdown.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-    .dropdown-menu li { display: block; }
-    .dropdown-menu a {
-      display: block;
-      padding: 0.7rem 1.2rem !important;
-      text-transform: none !important;
-      letter-spacing: 0 !important;
-      font-size: 0.9rem !important;
-      white-space: nowrap;
-    }
-    .dropdown-menu a::before { display: none; }
-    .dropdown-menu a:hover { background: rgba(255, 255, 255, 0.08); }
-    .dropdown-menu .menu-divider { height: 1px; margin: 0.4rem 0; background: rgba(255, 255, 255, 0.12); }
 
 
     footer {
@@ -242,8 +199,6 @@
       nav { padding: 1rem 1.5rem; }
       .nav-links { gap: 1.5rem; font-size: 0.85rem; }
       .logo { font-size: 1.4rem; }
-      .dropdown-menu { min-width: 200px; }
-      .dropdown-menu a { white-space: normal; }
     }
   </style>
 </head>
@@ -257,15 +212,7 @@
       <ul class="nav-links">
         <li><a href="index.html#apps">Apps</a></li>
         <li><a href="privacy-policy.html">Privacy</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Terms <span class="arrow">▼</span></a>
-          <ul class="dropdown-menu">
-            <li><a href="subscription-terms.html">SmartLink</a></li>
-            <li><a href="endo-subscription-terms.html">Endoscope Camera / USB OTG</a></li>
-            <li><a href="tvremote-terms.html">Smart Remote</a></li>
-            <li><a href="wireless-reverse-terms.html">Wireless Charging Checker</a></li>
-          </ul>
-        </li>
+        <li><a href="terms-of-use.html">Terms</a></li>
         <li><a href="mailto:support-contact@shadowsoft.space">Support</a></li>
       </ul>
     </div>
@@ -311,23 +258,5 @@
     <p style="margin-top:0.6rem;"><a href="privacy-policy.html" style="color:rgba(255,255,255,0.7);">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms-of-use.html" style="color:rgba(255,255,255,0.7);">Terms of Use</a></p>
   </footer>
 
-  <script>
-    (function () {
-      var dd = document.querySelector('.nav-links .dropdown');
-      if (!dd) return;
-      var toggle = dd.querySelector('.dropdown-toggle');
-      toggle.addEventListener('click', function (e) {
-        e.preventDefault();
-        var open = dd.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open);
-      });
-      document.addEventListener('click', function (e) {
-        if (!dd.contains(e.target)) {
-          dd.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
